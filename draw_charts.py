@@ -8,6 +8,7 @@ import requests
 import pandas as pd
 import matplotlib as plt
 
+# Pobiera id crypto z linku
 def dostepne_crypto():
         url = f'https://api.coingecko.com/api/v3/coins' 
         response = requests.get(url)
@@ -20,6 +21,7 @@ def dostepne_crypto():
 
         return id_crypto
 
+# Przedstawiamy dane z linku oraz przekształcamy w formę umożliwiającą narysowanie ich na wykresie
 def pobierz_wykres(coin_id = 'bitcoin', vs_currency = 'eur', days = 'max', interval = 'daily'):
     ids_crypto = dostepne_crypto()
     if coin_id in ids_crypto:
@@ -44,5 +46,3 @@ market_info_luna = pobierz_wykres('terra-luna', days = "365")
 market_info_doge = pobierz_wykres('dogecoin', days = "365")
 market_info_bcc = pobierz_wykres('bitcoin-cash', days = "365")
 market_info_eth = pobierz_wykres('ethereum', days = "365")
-
-print(market_info_btc['timestamp'])

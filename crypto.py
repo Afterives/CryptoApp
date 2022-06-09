@@ -114,7 +114,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        
+    # Pobieramy cenę, ustawiamy labele, rysujemy wykres oraz wyświetlamy dla określonego krypto
     def aktualna_cena(self):
         cg = CoinGeckoAPI()
         item = self.comboBox.currentText()
